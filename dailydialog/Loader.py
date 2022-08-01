@@ -1,3 +1,5 @@
+import pandas as pd
+
 class Loader:
 
     def __init__(self, current_dir=None):
@@ -14,7 +16,7 @@ class Loader:
         self._act_dict = self._load_act_labels()
 
         # Perform mapping
-        self._map_utter_act()
+        self._df_file = self._map_utter_act()
 
     def _load_dialogues(self) -> dict:
         
@@ -43,7 +45,7 @@ class Loader:
         return act_dict
         
 
-    def _map_utter_act(self) -> None:
+    def _map_utter_act(self) -> pd.DataFrame:
         
         # Convert from dict to list
         act_list = []
@@ -62,4 +64,12 @@ class Loader:
             act_list += value
             utter_list += utterances
 
-        return None
+        data = {
+            'label': act_list,
+            'utterance': utter_list
+        }
+
+        return pd.DataFrame(data)
+
+    def fetch_dataframe(self) -> pd.DataFrame:
+        return self._df_file
