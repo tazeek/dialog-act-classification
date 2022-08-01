@@ -15,13 +15,16 @@ if __name__ == '__main__':
     
     # Before running
     config = prepare_config()
-    
+
     # Load the dataset
     # Get the dataframe correctly
     # Should be:
     # - Label: inform, question, etc
     # - Utterance: full sentence
     dd_loader = Loader(config['current_path'])
+    
+    act_df = dd_loader.fetch_dataframe()
+    print(act_df.head(10))
 
     # Prepare the language model
     # Choice of: XLNet, BERT, ConceptNet, RoBERTa
