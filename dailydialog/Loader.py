@@ -12,7 +12,6 @@ class Loader:
         # Load act annotations
         # One dialogue: many act
         self._act_dict = self._load_act_labels()
-        print(self._act_dict[0])
 
         # TODO: Perform assertion on:
         # - Dictionaries are the same length
@@ -53,5 +52,13 @@ class Loader:
         act_list = []
         utter_list = []
 
+        for key, value in self._act_dict.items():
+
+            utterances = self._dialogue_dict[key]
+
+            act_list += value
+            utter_list += utterances
+
+        print(act_list)
         # Convert to dataframe and return
         return None
