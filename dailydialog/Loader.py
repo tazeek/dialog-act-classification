@@ -8,7 +8,6 @@ class Loader:
         # Load dialoges
         # One dialogue: many utterances
         self._dialogue_dict = self._load_dialogues()
-        print(self._dialogue_dict)
 
         # Load act annotations
         # One dialogue: many act
@@ -18,14 +17,15 @@ class Loader:
     def _load_dialogues(self) -> dict:
         
         utterances_dict = {}
-        with open(f'{self._curr_dir}\dialogues_text.txt', encoding='utf-8') as f:
+        with open(f'{self._data_dir}\dialogues_text.txt', encoding='utf-8') as f:
 
             for index, line in enumerate(f.readlines()):
 
                 # Replace the un-processed character
-                # and remove newline character
-                line = line.replace('’',"'").rstrip('\n')
-                utterances_dict[index] = line.split('__eou__')
+                # Split and remove empty line from the split
+                utterances = line.replace('’',"'").split('__eou__')
+                utterances.pop(-1)
+                utterances_dict[index] = utterances
 
         return utterances_dict
 

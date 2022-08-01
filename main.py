@@ -13,6 +13,9 @@ def prepare_config() -> dict:
 
 if __name__ == '__main__':
     
+    # Before running
+    config = prepare_config()
+    
     # Load the dataset
     # Get the dataframe correctly
     # Should be:
