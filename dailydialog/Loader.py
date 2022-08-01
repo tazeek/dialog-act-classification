@@ -11,6 +11,7 @@ class Loader:
 
         # Load act annotations
         # One dialogue: many act
+        self._act_dict = self._load_act_labels()
 
         # Perform mapping
 
@@ -29,8 +30,17 @@ class Loader:
 
         return utterances_dict
 
-    def _load_act_labels(self) -> list:
-        pass
+    def _load_act_labels(self) -> dict:
+        
+        act_dict = {}
+
+        with open(f'{self._data_dir}\diaogues_act.txt', encoding='utf-8') as f:
+
+            for index, line in enumerate(f.readlines()):
+                act_dict[index] = line.split()
+            
+        return act_dict
+        
 
     def _map_utter_act(self) -> None:
         pass
