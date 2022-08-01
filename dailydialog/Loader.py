@@ -18,7 +18,7 @@ class Loader:
         # Perform mapping
         self._df_file = self._map_utter_act()
 
-    def _get_dialog_mapping(self) -> dict:
+    def _get_act_mapping(self) -> dict:
         return {
             '1': 'inform', '2': 'question', '3': 'directive', '4': 'commissive'
         }
@@ -77,4 +77,10 @@ class Loader:
         return pd.DataFrame(data)
 
     def fetch_dataframe(self, transform_label=False) -> pd.DataFrame:
+
+        if transform_label:
+            mapper = self._get_act_mapping()
+
+            self._df_file['label'] = self._df_file['label'].map(lambda x: mapper(x))
+            
         return self._df_file
