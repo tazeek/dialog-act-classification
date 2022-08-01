@@ -1,3 +1,5 @@
+from dailydialog.Loader import Loader
+
 if __name__ == '__main__':
     
     # Load the dataset
@@ -5,7 +7,8 @@ if __name__ == '__main__':
     # Should be:
     # - Label: inform, question, etc
     # - Utterance: full sentence
-
+    dd_loader = Loader()
+    
     # Prepare the language model
     # Choice of: XLNet, BERT, ConceptNet, RoBERTa
 
