@@ -1,7 +1,10 @@
 class Loader:
 
-    def __init__(self):
+    def __init__(self, current_dir=None):
         
+        # Prepare attributes
+        self._data_dir = current_dir + '\\dailydialog\\data\\'
+
         # Load dialoges
         # One dialogue: many utterances
         self._dialogue_dict = self._load_dialogues()
@@ -15,8 +18,7 @@ class Loader:
     def _load_dialogues(self) -> dict:
         
         utterances_dict = {}
-
-        with open('data\dialogues_text.txt', encoding='utf-8') as f:
+        with open(f'{self._curr_dir}\dialogues_text.txt', encoding='utf-8') as f:
 
             for index, line in enumerate(f.readlines()):
 
