@@ -81,6 +81,6 @@ class Loader:
         if transform_label:
             mapper = self._get_act_mapping()
 
-            self._df_file['label'] = self._df_file['label'].map(lambda x: mapper(x))
-            
+            self._df_file['label'] = self._df_file['label'].map(lambda x: mapper[x])
+
         return self._df_file
