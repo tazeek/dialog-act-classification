@@ -18,6 +18,11 @@ class Loader:
         # Perform mapping
         self._df_file = self._map_utter_act()
 
+    def _get_dialog_mapping(self) -> dict:
+        return {
+            '1': 'inform', '2': 'question', '3': 'directive', '4': 'commissive'
+        }
+
     def _load_dialogues(self) -> dict:
         
         utterances_dict = {}
@@ -71,5 +76,5 @@ class Loader:
 
         return pd.DataFrame(data)
 
-    def fetch_dataframe(self) -> pd.DataFrame:
+    def fetch_dataframe(self, transform_label=False) -> pd.DataFrame:
         return self._df_file
