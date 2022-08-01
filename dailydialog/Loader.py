@@ -13,11 +13,8 @@ class Loader:
         # One dialogue: many act
         self._act_dict = self._load_act_labels()
 
-        # TODO: Perform assertion on:
-        # - Dictionaries are the same length
-        # - Index length for each are the same
-
         # Perform mapping
+        self._map_utter_act()
 
     def _load_dialogues(self) -> dict:
         
@@ -56,9 +53,13 @@ class Loader:
 
             utterances = self._dialogue_dict[key]
 
+            # Check mismatch between the lengths
+            # 01/08/2022: Index 673 has the mistmatch
+            if len(utterances) != len(value):
+                print(f'Mismatch at Index: {int(key) + 1}')
+                continue
+
             act_list += value
             utter_list += utterances
 
-        print(act_list)
-        # Convert to dataframe and return
         return None
