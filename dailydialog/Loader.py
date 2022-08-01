@@ -12,6 +12,11 @@ class Loader:
         # Load act annotations
         # One dialogue: many act
         self._act_dict = self._load_act_labels()
+        print(self._act_dict[0])
+
+        # TODO: Perform assertion on:
+        # - Dictionaries are the same length
+        # - Index length for each are the same
 
         # Perform mapping
 
@@ -34,7 +39,7 @@ class Loader:
         
         act_dict = {}
 
-        with open(f'{self._data_dir}\diaogues_act.txt', encoding='utf-8') as f:
+        with open(f'{self._data_dir}\dialogues_act.txt', encoding='utf-8') as f:
 
             for index, line in enumerate(f.readlines()):
                 act_dict[index] = line.split()
