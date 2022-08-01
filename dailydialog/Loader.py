@@ -48,4 +48,10 @@ class Loader:
         
 
     def _map_utter_act(self) -> None:
-        pass
+        
+        # Convert from dict to list
+        act_list = []
+        utter_list = []
+
+        # Convert to dataframe and return
+        return None
