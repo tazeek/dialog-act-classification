@@ -22,9 +22,7 @@ if __name__ == '__main__':
     # - Label: inform, question, etc
     # - Utterance: full sentence
     dd_loader = Loader(config['current_path'])
-    
     act_df = dd_loader.fetch_dataframe(transform_label=True)
-    print(act_df.head(10))
 
     # Prepare the language model
     # Choice of: XLNet, BERT, ConceptNet, RoBERTa
