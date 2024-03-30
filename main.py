@@ -15,8 +15,9 @@
 # 1. Transform with BERT: Raw -> CLS
 # 2. Feed into Capsule Nets: CLS -> Features
 # 3. Feed into two attentions: Utterance and Context
-# 4. Perform feature fusion
-# 5. Use linear layer for prediction
+# 4. Perform feature fusion: Utterance + Context = Combined
+# 5. Use linear layer for prediction: Combined -> Probabilities
+# 6. Extract the respective label: Probabilities -> label
 
 # Load the BERT model and transform the data
 
