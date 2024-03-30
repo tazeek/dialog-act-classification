@@ -20,4 +20,24 @@
 
 # Load the BERT model and transform the data
 
+# Load into the capsule network
+
+# Transform to two different features
+
+# Perform feature fusion
+
+# Perform prediction after linear layer transformation
+
+# Find the losses
+
+# Update the gradients
+
+# Display with the relevant metrics
+
+# Evaluate the validation dataset
+
+# Evaluate with the test dataset
+
+# Save the model
+
 
